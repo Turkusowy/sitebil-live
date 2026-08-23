@@ -1,0 +1,624 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1</title>
+<style>*{box-sizing:border-box}body{margin:0}</style>
+</head>
+<body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bio-bg: #05080f;
+    --bio-bg-card: rgba(13, 20, 36, 0.7);
+    --bio-border: rgba(56, 189, 248, 0.18);
+    --bio-border-hover: rgba(56, 189, 248, 0.5);
+    --bio-cyan: #06b6d4;
+    --bio-emerald: #10b981;
+    --bio-neon-blue: #38bdf8;
+    --bio-text: #f1f5f9;
+    --bio-muted: #94a3b8;
+    --bio-glow-cyan: 0 0 35px rgba(6, 182, 212, 0.35);
+    --bio-glow-emerald: 0 0 35px rgba(16, 185, 129, 0.35);
+    --bio-font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --bio-font-heading: 'Syne', sans-serif;
+    --bio-font-mono: 'Space Grotesk', monospace, sans-serif;
+  }
+
+  body {
+    background-color: var(--bio-bg);
+    color: var(--bio-text);
+    font-family: var(--bio-font-sans);
+    overflow-x: hidden;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .bio-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    background: rgba(5, 8, 15, 0.85);
+    border-bottom: 1px solid rgba(56, 189, 248, 0.12);
+    padding: 18px 24px;
+  }
+  .bio-nav-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .bio-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: #fff;
+  }
+  .bio-logo-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #06b6d4, #10b981);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
+    position: relative;
+  }
+  .bio-brand-text {
+    font-family: var(--bio-font-heading);
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    background: linear-gradient(120deg, #ffffff, #93c5fd);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .bio-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .bio-nav-link {
+    color: var(--bio-muted);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s, text-shadow 0.2s;
+  }
+  .bio-nav-link:hover {
+    color: var(--bio-cyan);
+    text-shadow: 0 0 12px rgba(6, 182, 212, 0.6);
+  }
+  .bio-nav-btn {
+    padding: 10px 22px;
+    background: rgba(6, 182, 212, 0.12);
+    border: 1px solid rgba(6, 182, 212, 0.4);
+    border-radius: 999px;
+    color: #38bdf8;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    font-family: var(--bio-font-mono);
+    letter-spacing: 0.05em;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .bio-nav-btn:hover {
+    background: #06b6d4;
+    color: #05080f;
+    box-shadow: 0 0 25px rgba(6, 182, 212, 0.6);
+    transform: translateY(-1px);
+  }
+
+  /* HERO SECTION */
+  .bio-hero-section {
+    position: relative;
+    padding: 80px 24px 120px;
+    overflow: hidden;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    background: radial-gradient(circle at 50% 0%, rgba(6, 182, 212, 0.15) 0%, transparent 60%),
+                radial-gradient(circle at 90% 40%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
+                #05080f;
+  }
+
+  .bio-hero-bg-grid {
+    position: absolute;
+    inset: 0;
+    background-image: 
+      linear-gradient(rgba(56, 189, 248, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(56, 189, 248, 0.04) 1px, transparent 1px);
+    background-size: 48px 48px;
+    pointer-events: none;
+    mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+  }
+
+  .bio-hero-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.05fr 1.15fr;
+    gap: 48px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+  }
+
+  .bio-badge-row {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 16px;
+    border-radius: 999px;
+    background: rgba(6, 182, 212, 0.08);
+    border: 1px solid rgba(6, 182, 212, 0.3);
+    color: #67e8f9;
+    font-size: 12px;
+    font-family: var(--bio-font-mono);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .bio-pulse-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #10b981;
+    box-shadow: 0 0 12px #10b981;
+    animation: bioPulse 2s infinite ease-in-out;
+  }
+  @keyframes bioPulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.4); opacity: 0.6; }
+  }
+
+  .bio-hero-title {
+    font-family: var(--bio-font-heading);
+    font-size: clamp(38px, 4.5vw, 62px);
+    line-height: 1.08;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin: 0 0 24px;
+    color: #ffffff;
+  }
+  .bio-gradient-text {
+    background: linear-gradient(135deg, #38bdf8 0%, #06b6d4 40%, #10b981 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .bio-hero-desc {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #94a3b8;
+    margin: 0 0 36px;
+    max-width: 540px;
+  }
+
+  .bio-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+    margin-bottom: 44px;
+  }
+
+  .bio-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 34px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #06b6d4, #0284c7);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 15px;
+    text-decoration: none;
+    box-shadow: 0 10px 30px rgba(6, 182, 212, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+  }
+  .bio-btn-primary:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 16px 40px rgba(6, 182, 212, 0.6);
+  }
+
+  .bio-btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 28px;
+    border-radius: 12px;
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    color: #f1f5f9;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+  }
+  .bio-btn-secondary:hover {
+    background: rgba(30, 41, 59, 0.9);
+    border-color: var(--bio-cyan);
+    color: #38bdf8;
+    transform: translateY(-2px);
+  }
+
+  /* Telemetry mini-row */
+  .bio-hero-metrics {
+    display: flex;
+    gap: 32px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .bio-metric-item h4 {
+    margin: 0;
+    font-family: var(--bio-font-mono);
+    font-size: 26px;
+    font-weight: 700;
+    color: #38bdf8;
+  }
+  .bio-metric-item p {
+    margin: 4px 0 0;
+    font-size: 13px;
+    color: var(--bio-muted);
+    font-weight: 500;
+  }
+
+  /* 3D PARALLAX CARD WRAPPER */
+  .bio-3d-stage {
+    perspective: 1200px;
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .bio-3d-card {
+    position: relative;
+    width: 100%;
+    max-width: 620px;
+    border-radius: 24px;
+    background: rgba(13, 20, 36, 0.85);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8), 0 0 40px rgba(6, 182, 212, 0.2);
+    transform-style: preserve-3d;
+    transition: transform 0.15s ease-out, box-shadow 0.3s ease;
+    cursor: grab;
+    overflow: visible;
+  }
+
+  .bio-3d-image-wrap {
+    position: relative;
+    border-radius: 22px;
+    overflow: hidden;
+    line-height: 0;
+    background: #000;
+  }
+
+  .bio-3d-image-wrap img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  /* Dynamic holographic reflection overlay */
+  .bio-glare {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(56, 189, 248, 0.35) 0%, transparent 60%);
+    pointer-events: none;
+    mix-blend-mode: screen;
+    border-radius: 22px;
+    z-index: 5;
+    opacity: 0.85;
+    transition: opacity 0.3s ease;
+  }
+
+  /* Floating 3D HUD Badges */
+  .bio-float-badge {
+    position: absolute;
+    z-index: 10;
+    padding: 12px 18px;
+    background: rgba(10, 17, 32, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(6, 182, 212, 0.3);
+    transform-style: preserve-3d;
+    pointer-events: none;
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .bio-badge-top-right {
+    top: -24px;
+    right: -20px;
+    transform: translateZ(50px);
+    animation: floatHud1 4s infinite ease-in-out;
+  }
+
+  .bio-badge-bottom-left {
+    bottom: -28px;
+    left: -20px;
+    transform: translateZ(60px);
+    animation: floatHud2 4.5s infinite ease-in-out;
+  }
+
+  @keyframes floatHud1 {
+    0%, 100% { transform: translateZ(50px) translateY(0); }
+    50% { transform: translateZ(50px) translateY(-8px); }
+  }
+  @keyframes floatHud2 {
+    0%, 100% { transform: translateZ(60px) translateY(0); }
+    50% { transform: translateZ(60px) translateY(8px); }
+  }
+
+  .bio-badge-label {
+    font-size: 11px;
+    font-family: var(--bio-font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--bio-muted);
+    margin-bottom: 4px;
+  }
+  .bio-badge-val {
+    font-size: 17px;
+    font-weight: 700;
+    font-family: var(--bio-font-mono);
+    color: #10b981;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .bio-badge-val.cyan {
+    color: #38bdf8;
+  }
+
+  /* Scanline subtle HUD bar */
+  .bio-hud-scanline {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    right: 16px;
+    padding: 10px 16px;
+    background: rgba(5, 8, 15, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--bio-font-mono);
+    font-size: 12px;
+    color: #94a3b8;
+    z-index: 6;
+    transform: translateZ(30px);
+  }
+  .bio-status-active {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #67e8f9;
+    font-weight: 600;
+  }
+
+  @media (max-width: 960px) {
+    .bio-hero-container {
+      grid-template-columns: 1fr;
+      text-align: center;
+      gap: 56px;
+    }
+    .bio-hero-desc {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .bio-hero-actions {
+      justify-content: center;
+    }
+    .bio-hero-metrics {
+      justify-content: center;
+    }
+    .bio-badge-top-right {
+      right: 0px;
+      top: -16px;
+    }
+    .bio-badge-bottom-left {
+      left: 0px;
+      bottom: -16px;
+    }
+    .bio-nav-links {
+      display: none;
+    }
+  }
+</style>
+
+<nav class="bio-nav">
+  <div class="bio-nav-inner">
+    <a href="#hero" class="bio-brand">
+      <div class="bio-logo-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+        </svg>
+      </div>
+      <span class="bio-brand-text">SYNAPSE // PROTOCOL</span>
+    </a>
+    <ul class="bio-nav-links">
+      <li><a href="#filary" class="bio-nav-link">Filary Biohackingu</a></li>
+      <li><a href="#symulator" class="bio-nav-link">Symulator Wieku</a></li>
+      <li><a href="#technologia" class="bio-nav-link">Architektura 3D</a></li>
+      <li><a href="#wyniki" class="bio-nav-link">Biomarkery</a></li>
+    </ul>
+    <a href="#kontakt" class="bio-nav-btn">AUDYT GENOMU</a>
+  </div>
+</nav>
+
+<section id="hero" class="bio-hero-section">
+  <div class="bio-hero-bg-grid"></div>
+
+  <div class="bio-hero-container">
+    <!-- Left Column: Copy & Value Proposition -->
+    <div class="bio-hero-content">
+      <div class="bio-badge-row">
+        <span class="bio-pulse-dot"></span>
+        <span>KOMÓRKOWY PROTOKÓŁ DŁUGOWIECZNOŚCI 3.0</span>
+      </div>
+
+      <h1 class="bio-hero-title">
+        Zhakuj Swoją Biologię. <br>
+        <span class="bio-gradient-text">Odmłódź Wiek Komórkowy.</span>
+      </h1>
+
+      <p class="bio-hero-desc">
+        Zaawansowana inżynieria ludzkiej wydajności. Integrujemy analizę metylacji DNA, regenerację mitochondrialną i precyzyjną fotobiomodulację, aby odblokować peak performance Twojego ciała i umysłu.
+      </p>
+
+      <div class="bio-hero-actions">
+        <a href="#symulator" class="bio-btn-primary">
+          <span>Oblicz Swój Bio-Wiek</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+        <a href="#filary" class="bio-btn-secondary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polygon points="10 8 16 12 10 16 10 8"></polygon>
+          </svg>
+          <span>Zobacz Filary</span>
+        </a>
+      </div>
+
+      <div class="bio-hero-metrics">
+        <div class="bio-metric-item">
+          <h4>-7.4 lat</h4>
+          <p>Średnia redukcja bio-wieku</p>
+        </div>
+        <div class="bio-metric-item">
+          <h4>+48%</h4>
+          <p>Wzrost syntezy ATP w komórkach</p>
+        </div>
+        <div class="bio-metric-item">
+          <h4>99.2%</h4>
+          <p>Kliniczna trafność markerów</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column: Interactive 3D Parallax Tilt Card -->
+    <div class="bio-3d-stage">
+      <div class="bio-3d-card" id="heroCard3D">
+        <div class="bio-glare" id="heroGlare"></div>
+        
+        <div class="bio-3d-image-wrap">
+          <img src="assets/hero-biometria.webp" alt="Biohacker analizujący dane biometryczne w laboratorium" width="1376" height="768" loading="eager">
+        </div>
+
+        <!-- Top Right Floating 3D Badge -->
+        <div class="bio-float-badge bio-badge-top-right">
+          <div class="bio-badge-label">SYNAPTYCZNA ENERGIA (ATP)</div>
+          <div class="bio-badge-val">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+              <polyline points="17 6 23 6 23 12"></polyline>
+            </svg>
+            +94.8% OPTYMALIZACJI
+          </div>
+        </div>
+
+        <!-- Bottom Left Floating 3D Badge -->
+        <div class="bio-float-badge bio-badge-bottom-left">
+          <div class="bio-badge-label">KORELACJA DNA & HRV</div>
+          <div class="bio-badge-val cyan">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+            </svg>
+            118 ms (Peak State)
+          </div>
+        </div>
+
+        <!-- Bottom HUD telemetry scanline -->
+        <div class="bio-hud-scanline">
+          <div class="bio-status-active">
+            <span class="bio-pulse-dot"></span>
+            <span>GENOM SEQ: ACTIVE [CALIBRATED]</span>
+          </div>
+          <span style="opacity: 0.7;">FPS: 60 // 3D DEPTH: ON</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function() {
+    const card = document.getElementById('heroCard3D');
+    const glare = document.getElementById('heroGlare');
+    if (!card) return;
+
+    let bounds;
+    function updateBounds() {
+      bounds = card.getBoundingClientRect();
+    }
+    updateBounds();
+    window.addEventListener('resize', updateBounds);
+    window.addEventListener('scroll', updateBounds, { passive: true });
+
+    function handleMouseMove(e) {
+      if (!bounds) updateBounds();
+      const mouseX = e.clientX;
+      const mouseY = e.clientY;
+      const leftX = mouseX - bounds.x;
+      const topY = mouseY - bounds.y;
+      
+      const center = {
+        x: leftX - bounds.width / 2,
+        y: topY - bounds.height / 2
+      };
+      
+      const distance = Math.sqrt(center.x ** 2 + center.y ** 2);
+      
+      // Calculate rotation angles (max 18deg for dynamic 3D feel)
+      const rotateX = (-center.y / (bounds.height / 2)) * 14;
+      const rotateY = (center.x / (bounds.width / 2)) * 14;
+
+      card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) scale3d(1.03, 1.03, 1.03)`;
+      
+      // Update light glare position
+      const glareX = (leftX / bounds.width) * 100;
+      const glareY = (topY / bounds.height) * 100;
+      card.style.setProperty('--mouse-x', `${glareX}%`);
+      card.style.setProperty('--mouse-y', `${glareY}%`);
+    }
+
+    function handleMouseLeave() {
+      card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+    }
+
+    card.addEventListener('mousemove', handleMouseMove);
+    card.addEventListener('mouseleave', handleMouseLeave);
+  })();
+</script>
+
+</body>
+</html>

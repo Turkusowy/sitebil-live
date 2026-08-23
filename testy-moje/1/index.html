@@ -1,0 +1,2301 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1</title>
+<style>*{box-sizing:border-box}body{margin:0}</style>
+</head>
+<body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bio-bg: #05080f;
+    --bio-bg-card: rgba(13, 20, 36, 0.7);
+    --bio-border: rgba(56, 189, 248, 0.18);
+    --bio-border-hover: rgba(56, 189, 248, 0.5);
+    --bio-cyan: #06b6d4;
+    --bio-emerald: #10b981;
+    --bio-neon-blue: #38bdf8;
+    --bio-text: #f1f5f9;
+    --bio-muted: #94a3b8;
+    --bio-glow-cyan: 0 0 35px rgba(6, 182, 212, 0.35);
+    --bio-glow-emerald: 0 0 35px rgba(16, 185, 129, 0.35);
+    --bio-font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --bio-font-heading: 'Syne', sans-serif;
+    --bio-font-mono: 'Space Grotesk', monospace, sans-serif;
+  }
+
+  body {
+    background-color: var(--bio-bg);
+    color: var(--bio-text);
+    font-family: var(--bio-font-sans);
+    overflow-x: hidden;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .bio-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    background: rgba(5, 8, 15, 0.85);
+    border-bottom: 1px solid rgba(56, 189, 248, 0.12);
+    padding: 18px 24px;
+  }
+  .bio-nav-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .bio-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: #fff;
+  }
+  .bio-logo-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #06b6d4, #10b981);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
+    position: relative;
+  }
+  .bio-brand-text {
+    font-family: var(--bio-font-heading);
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    background: linear-gradient(120deg, #ffffff, #93c5fd);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .bio-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .bio-nav-link {
+    color: var(--bio-muted);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s, text-shadow 0.2s;
+  }
+  .bio-nav-link:hover {
+    color: var(--bio-cyan);
+    text-shadow: 0 0 12px rgba(6, 182, 212, 0.6);
+  }
+  .bio-nav-btn {
+    padding: 10px 22px;
+    background: rgba(6, 182, 212, 0.12);
+    border: 1px solid rgba(6, 182, 212, 0.4);
+    border-radius: 999px;
+    color: #38bdf8;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    font-family: var(--bio-font-mono);
+    letter-spacing: 0.05em;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .bio-nav-btn:hover {
+    background: #06b6d4;
+    color: #05080f;
+    box-shadow: 0 0 25px rgba(6, 182, 212, 0.6);
+    transform: translateY(-1px);
+  }
+
+  /* HERO SECTION */
+  .bio-hero-section {
+    position: relative;
+    padding: 80px 24px 120px;
+    overflow: hidden;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    background: radial-gradient(circle at 50% 0%, rgba(6, 182, 212, 0.15) 0%, transparent 60%),
+                radial-gradient(circle at 90% 40%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
+                #05080f;
+  }
+
+  .bio-hero-bg-grid {
+    position: absolute;
+    inset: 0;
+    background-image: 
+      linear-gradient(rgba(56, 189, 248, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(56, 189, 248, 0.04) 1px, transparent 1px);
+    background-size: 48px 48px;
+    pointer-events: none;
+    mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+  }
+
+  .bio-hero-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.05fr 1.15fr;
+    gap: 48px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+  }
+
+  .bio-badge-row {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 16px;
+    border-radius: 999px;
+    background: rgba(6, 182, 212, 0.08);
+    border: 1px solid rgba(6, 182, 212, 0.3);
+    color: #67e8f9;
+    font-size: 12px;
+    font-family: var(--bio-font-mono);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .bio-pulse-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #10b981;
+    box-shadow: 0 0 12px #10b981;
+    animation: bioPulse 2s infinite ease-in-out;
+  }
+  @keyframes bioPulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.4); opacity: 0.6; }
+  }
+
+  .bio-hero-title {
+    font-family: var(--bio-font-heading);
+    font-size: clamp(38px, 4.5vw, 62px);
+    line-height: 1.08;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin: 0 0 24px;
+    color: #ffffff;
+  }
+  .bio-gradient-text {
+    background: linear-gradient(135deg, #38bdf8 0%, #06b6d4 40%, #10b981 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .bio-hero-desc {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #94a3b8;
+    margin: 0 0 36px;
+    max-width: 540px;
+  }
+
+  .bio-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+    margin-bottom: 44px;
+  }
+
+  .bio-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 34px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #06b6d4, #0284c7);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 15px;
+    text-decoration: none;
+    box-shadow: 0 10px 30px rgba(6, 182, 212, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+  }
+  .bio-btn-primary:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 16px 40px rgba(6, 182, 212, 0.6);
+  }
+
+  .bio-btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 28px;
+    border-radius: 12px;
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    color: #f1f5f9;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+  }
+  .bio-btn-secondary:hover {
+    background: rgba(30, 41, 59, 0.9);
+    border-color: var(--bio-cyan);
+    color: #38bdf8;
+    transform: translateY(-2px);
+  }
+
+  /* Telemetry mini-row */
+  .bio-hero-metrics {
+    display: flex;
+    gap: 32px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .bio-metric-item h4 {
+    margin: 0;
+    font-family: var(--bio-font-mono);
+    font-size: 26px;
+    font-weight: 700;
+    color: #38bdf8;
+  }
+  .bio-metric-item p {
+    margin: 4px 0 0;
+    font-size: 13px;
+    color: var(--bio-muted);
+    font-weight: 500;
+  }
+
+  /* 3D PARALLAX CARD WRAPPER */
+  .bio-3d-stage {
+    perspective: 1200px;
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .bio-3d-card {
+    position: relative;
+    width: 100%;
+    max-width: 620px;
+    border-radius: 24px;
+    background: rgba(13, 20, 36, 0.85);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8), 0 0 40px rgba(6, 182, 212, 0.2);
+    transform-style: preserve-3d;
+    transition: transform 0.15s ease-out, box-shadow 0.3s ease;
+    cursor: grab;
+    overflow: visible;
+  }
+
+  .bio-3d-image-wrap {
+    position: relative;
+    border-radius: 22px;
+    overflow: hidden;
+    line-height: 0;
+    background: #000;
+  }
+
+  .bio-3d-image-wrap img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  /* Dynamic holographic reflection overlay */
+  .bio-glare {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(56, 189, 248, 0.35) 0%, transparent 60%);
+    pointer-events: none;
+    mix-blend-mode: screen;
+    border-radius: 22px;
+    z-index: 5;
+    opacity: 0.85;
+    transition: opacity 0.3s ease;
+  }
+
+  /* Floating 3D HUD Badges */
+  .bio-float-badge {
+    position: absolute;
+    z-index: 10;
+    padding: 12px 18px;
+    background: rgba(10, 17, 32, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(6, 182, 212, 0.3);
+    transform-style: preserve-3d;
+    pointer-events: none;
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .bio-badge-top-right {
+    top: -24px;
+    right: -20px;
+    transform: translateZ(50px);
+    animation: floatHud1 4s infinite ease-in-out;
+  }
+
+  .bio-badge-bottom-left {
+    bottom: -28px;
+    left: -20px;
+    transform: translateZ(60px);
+    animation: floatHud2 4.5s infinite ease-in-out;
+  }
+
+  @keyframes floatHud1 {
+    0%, 100% { transform: translateZ(50px) translateY(0); }
+    50% { transform: translateZ(50px) translateY(-8px); }
+  }
+  @keyframes floatHud2 {
+    0%, 100% { transform: translateZ(60px) translateY(0); }
+    50% { transform: translateZ(60px) translateY(8px); }
+  }
+
+  .bio-badge-label {
+    font-size: 11px;
+    font-family: var(--bio-font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--bio-muted);
+    margin-bottom: 4px;
+  }
+  .bio-badge-val {
+    font-size: 17px;
+    font-weight: 700;
+    font-family: var(--bio-font-mono);
+    color: #10b981;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .bio-badge-val.cyan {
+    color: #38bdf8;
+  }
+
+  /* Scanline subtle HUD bar */
+  .bio-hud-scanline {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    right: 16px;
+    padding: 10px 16px;
+    background: rgba(5, 8, 15, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--bio-font-mono);
+    font-size: 12px;
+    color: #94a3b8;
+    z-index: 6;
+    transform: translateZ(30px);
+  }
+  .bio-status-active {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #67e8f9;
+    font-weight: 600;
+  }
+
+  @media (max-width: 960px) {
+    .bio-hero-container {
+      grid-template-columns: 1fr;
+      text-align: center;
+      gap: 56px;
+    }
+    .bio-hero-desc {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .bio-hero-actions {
+      justify-content: center;
+    }
+    .bio-hero-metrics {
+      justify-content: center;
+    }
+    .bio-badge-top-right {
+      right: 0px;
+      top: -16px;
+    }
+    .bio-badge-bottom-left {
+      left: 0px;
+      bottom: -16px;
+    }
+    .bio-nav-links {
+      display: none;
+    }
+  }
+</style>
+
+<nav class="bio-nav">
+  <div class="bio-nav-inner">
+    <a href="#hero" class="bio-brand">
+      <div class="bio-logo-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+        </svg>
+      </div>
+      <span class="bio-brand-text">SYNAPSE // PROTOCOL</span>
+    </a>
+    <ul class="bio-nav-links">
+      <li><a href="#filary" class="bio-nav-link">Filary Biohackingu</a></li>
+      <li><a href="#symulator" class="bio-nav-link">Symulator Wieku</a></li>
+      <li><a href="#technologia" class="bio-nav-link">Architektura 3D</a></li>
+      <li><a href="#wyniki" class="bio-nav-link">Biomarkery</a></li>
+    </ul>
+    <a href="#kontakt" class="bio-nav-btn">AUDYT GENOMU</a>
+  </div>
+</nav>
+
+<section id="hero" class="bio-hero-section">
+  <div class="bio-hero-bg-grid"></div>
+
+  <div class="bio-hero-container">
+    <!-- Left Column: Copy & Value Proposition -->
+    <div class="bio-hero-content">
+      <div class="bio-badge-row">
+        <span class="bio-pulse-dot"></span>
+        <span>KOMÓRKOWY PROTOKÓŁ DŁUGOWIECZNOŚCI 3.0</span>
+      </div>
+
+      <h1 class="bio-hero-title">
+        Zhakuj Swoją Biologię. <br>
+        <span class="bio-gradient-text">Odmłódź Wiek Komórkowy.</span>
+      </h1>
+
+      <p class="bio-hero-desc">
+        Zaawansowana inżynieria ludzkiej wydajności. Integrujemy analizę metylacji DNA, regenerację mitochondrialną i precyzyjną fotobiomodulację, aby odblokować peak performance Twojego ciała i umysłu.
+      </p>
+
+      <div class="bio-hero-actions">
+        <a href="#symulator" class="bio-btn-primary">
+          <span>Oblicz Swój Bio-Wiek</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+        <a href="#filary" class="bio-btn-secondary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polygon points="10 8 16 12 10 16 10 8"></polygon>
+          </svg>
+          <span>Zobacz Filary</span>
+        </a>
+      </div>
+
+      <div class="bio-hero-metrics">
+        <div class="bio-metric-item">
+          <h4>-7.4 lat</h4>
+          <p>Średnia redukcja bio-wieku</p>
+        </div>
+        <div class="bio-metric-item">
+          <h4>+48%</h4>
+          <p>Wzrost syntezy ATP w komórkach</p>
+        </div>
+        <div class="bio-metric-item">
+          <h4>99.2%</h4>
+          <p>Kliniczna trafność markerów</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column: Interactive 3D Parallax Tilt Card -->
+    <div class="bio-3d-stage">
+      <div class="bio-3d-card" id="heroCard3D">
+        <div class="bio-glare" id="heroGlare"></div>
+        
+        <div class="bio-3d-image-wrap">
+          <img src="assets/hero-biometria.webp" alt="Biohacker analizujący dane biometryczne w laboratorium" width="1376" height="768" loading="eager">
+        </div>
+
+        <!-- Top Right Floating 3D Badge -->
+        <div class="bio-float-badge bio-badge-top-right">
+          <div class="bio-badge-label">SYNAPTYCZNA ENERGIA (ATP)</div>
+          <div class="bio-badge-val">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+              <polyline points="17 6 23 6 23 12"></polyline>
+            </svg>
+            +94.8% OPTYMALIZACJI
+          </div>
+        </div>
+
+        <!-- Bottom Left Floating 3D Badge -->
+        <div class="bio-float-badge bio-badge-bottom-left">
+          <div class="bio-badge-label">KORELACJA DNA & HRV</div>
+          <div class="bio-badge-val cyan">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+            </svg>
+            118 ms (Peak State)
+          </div>
+        </div>
+
+        <!-- Bottom HUD telemetry scanline -->
+        <div class="bio-hud-scanline">
+          <div class="bio-status-active">
+            <span class="bio-pulse-dot"></span>
+            <span>GENOM SEQ: ACTIVE [CALIBRATED]</span>
+          </div>
+          <span style="opacity: 0.7;">FPS: 60 // 3D DEPTH: ON</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function() {
+    const card = document.getElementById('heroCard3D');
+    const glare = document.getElementById('heroGlare');
+    if (!card) return;
+
+    let bounds;
+    function updateBounds() {
+      bounds = card.getBoundingClientRect();
+    }
+    updateBounds();
+    window.addEventListener('resize', updateBounds);
+    window.addEventListener('scroll', updateBounds, { passive: true });
+
+    function handleMouseMove(e) {
+      if (!bounds) updateBounds();
+      const mouseX = e.clientX;
+      const mouseY = e.clientY;
+      const leftX = mouseX - bounds.x;
+      const topY = mouseY - bounds.y;
+      
+      const center = {
+        x: leftX - bounds.width / 2,
+        y: topY - bounds.height / 2
+      };
+      
+      const distance = Math.sqrt(center.x ** 2 + center.y ** 2);
+      
+      // Calculate rotation angles (max 18deg for dynamic 3D feel)
+      const rotateX = (-center.y / (bounds.height / 2)) * 14;
+      const rotateY = (center.x / (bounds.width / 2)) * 14;
+
+      card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) scale3d(1.03, 1.03, 1.03)`;
+      
+      // Update light glare position
+      const glareX = (leftX / bounds.width) * 100;
+      const glareY = (topY / bounds.height) * 100;
+      card.style.setProperty('--mouse-x', `${glareX}%`);
+      card.style.setProperty('--mouse-y', `${glareY}%`);
+    }
+
+    function handleMouseLeave() {
+      card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+    }
+
+    card.addEventListener('mousemove', handleMouseMove);
+    card.addEventListener('mouseleave', handleMouseLeave);
+  })();
+</script>
+
+<style>
+  .bio-pillars-section {
+    position: relative;
+    padding: 120px 24px;
+    background: #060911;
+    overflow: hidden;
+  }
+
+  .bio-pillars-bg-glow {
+    position: absolute;
+    top: 20%;
+    left: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(6, 182, 212, 0.12) 0%, transparent 70%);
+    filter: blur(80px);
+    pointer-events: none;
+  }
+
+  .bio-pillars-bg-glow2 {
+    position: absolute;
+    bottom: 10%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
+    filter: blur(80px);
+    pointer-events: none;
+  }
+
+  .bio-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+
+  .bio-section-header {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 72px;
+  }
+
+  .bio-section-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    border-radius: 999px;
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    color: #34d399;
+    font-size: 12px;
+    font-family: var(--bio-font-mono, 'Space Grotesk', monospace);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .bio-section-title {
+    font-family: var(--bio-font-heading, 'Syne', sans-serif);
+    font-size: clamp(32px, 3.8vw, 48px);
+    line-height: 1.15;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: #ffffff;
+    margin: 0 0 20px;
+  }
+
+  .bio-section-subtitle {
+    font-size: 17px;
+    line-height: 1.7;
+    color: #94a3b8;
+    margin: 0;
+  }
+
+  /* BENTO GRID OF 3D PILLARS */
+  .bio-pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 32px;
+    perspective: 1200px;
+  }
+
+  .bio-pillar-card {
+    position: relative;
+    border-radius: 24px;
+    background: rgba(12, 19, 34, 0.75);
+    border: 1px solid rgba(56, 189, 248, 0.16);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    transform-style: preserve-3d;
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    cursor: default;
+  }
+
+  .bio-pillar-card:hover {
+    border-color: rgba(6, 182, 212, 0.6);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.7), 0 0 40px rgba(6, 182, 212, 0.25);
+  }
+
+  /* Grid span assignments */
+  .bio-pillar-col-7 { grid-column: span 7; }
+  .bio-pillar-col-5 { grid-column: span 5; }
+  .bio-pillar-col-6 { grid-column: span 6; }
+
+  .bio-pillar-img-wrap {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background: #000;
+  }
+
+  .bio-pillar-img-wrap img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .bio-pillar-card:hover .bio-pillar-img-wrap img {
+    transform: scale(1.05);
+  }
+
+  .bio-pillar-img-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 30%, rgba(12, 19, 34, 0.95) 100%);
+    pointer-events: none;
+  }
+
+  .bio-pillar-content {
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    position: relative;
+    z-index: 3;
+    transform: translateZ(30px);
+  }
+
+  .bio-pillar-tag-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+
+  .bio-pillar-num {
+    font-family: var(--bio-font-mono, 'Space Grotesk', monospace);
+    font-size: 13px;
+    font-weight: 700;
+    color: #06b6d4;
+    letter-spacing: 0.1em;
+  }
+
+  .bio-pillar-chip {
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(56, 189, 248, 0.1);
+    color: #38bdf8;
+    font-weight: 600;
+    font-family: var(--bio-font-mono, 'Space Grotesk', monospace);
+  }
+
+  .bio-pillar-title {
+    font-family: var(--bio-font-heading, 'Syne', sans-serif);
+    font-size: 24px;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0 0 14px;
+    letter-spacing: -0.01em;
+  }
+
+  .bio-pillar-desc {
+    font-size: 15px;
+    line-height: 1.65;
+    color: #94a3b8;
+    margin: 0 0 24px;
+    flex-grow: 1;
+  }
+
+  .bio-pillar-metrics-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .bio-pillar-metric-box {
+    background: rgba(5, 8, 15, 0.5);
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .bio-metric-label {
+    font-size: 11px;
+    color: #64748b;
+    text-transform: uppercase;
+    font-family: var(--bio-font-mono, 'Space Grotesk', monospace);
+    letter-spacing: 0.05em;
+    margin-bottom: 4px;
+  }
+
+  .bio-metric-num {
+    font-size: 18px;
+    font-weight: 700;
+    font-family: var(--bio-font-mono, 'Space Grotesk', monospace);
+    color: #10b981;
+  }
+
+  .bio-metric-num.cyan {
+    color: #06b6d4;
+  }
+
+  /* Pillar 4 special visual styling */
+  .bio-dna-anim-box {
+    height: 280px;
+    background: radial-gradient(circle at center, rgba(6, 182, 212, 0.2) 0%, #05080f 80%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .bio-dna-radar {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 1px dashed rgba(56, 189, 248, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    animation: rotateRadar 20s infinite linear;
+  }
+  @keyframes rotateRadar {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  .bio-radar-core {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #06b6d4 0%, transparent 80%);
+    box-shadow: 0 0 30px rgba(6, 182, 212, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 800;
+    font-family: var(--bio-font-mono, 'Space Grotesk', monospace);
+    font-size: 13px;
+  }
+
+  @media (max-width: 1024px) {
+    .bio-pillar-col-7,
+    .bio-pillar-col-5,
+    .bio-pillar-col-6 {
+      grid-column: span 12;
+    }
+    .bio-pillar-img-wrap img {
+      height: 240px;
+    }
+  }
+</style>
+
+<section id="filary" class="bio-pillars-section">
+  <div class="bio-pillars-bg-glow"></div>
+  <div class="bio-pillars-bg-glow2"></div>
+
+  <div class="bio-container">
+    <div class="bio-section-header">
+      <div class="bio-section-tag">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+        </svg>
+        <span>SYSTEM BIO-INŻYNIERII CZŁOWIEKA</span>
+      </div>
+      <h2 class="bio-section-title">Cztery Filary Totalnej Optymalizacji</h2>
+      <p class="bio-section-subtitle">
+        Nie zgadujemy. Działamy na poziomie mitochondrialnym, synaptycznym i komórkowym, zamieniając biologię w kontrolowany system o najwyższej sprawności.
+      </p>
+    </div>
+
+    <div class="bio-pillars-grid">
+      <!-- Card 1: Mitochondria & ATP (Span 7) -->
+      <div class="bio-pillar-card bio-pillar-col-7 tilt-card">
+        <div class="bio-pillar-img-wrap">
+          <img src="assets/mitochondria-cellular.webp" alt="Struktura mitochondrium produkującego energię komórkową ATP" width="1200" height="896" loading="lazy">
+          <div class="bio-pillar-img-overlay"></div>
+        </div>
+        <div class="bio-pillar-content">
+          <div class="bio-pillar-tag-row">
+            <span class="bio-pillar-num">PILAR // 01</span>
+            <span class="bio-pillar-chip">SYNTEZA ENERGII</span>
+          </div>
+          <h3 class="bio-pillar-title">Mitochondrialna Bateria Komórkowa (ATP Boost)</h3>
+          <p class="bio-pillar-desc">
+            Mitochondria odpowiadają za 90% energii życiowej. Poprzez aktywację biogenezy mitochondrialnej (PGC-1α) oraz redukcję stresu oksydacyjnego zwiększamy dostępną energię komórkową bez wypalania układu nerwowego kofeiną.
+          </p>
+          <div class="bio-pillar-metrics-grid">
+            <div class="bio-pillar-metric-box">
+              <div class="bio-metric-label">Produkcja ATP</div>
+              <div class="bio-metric-num">+62.4%</div>
+            </div>
+            <div class="bio-pillar-metric-box">
+              <div class="bio-metric-label">Odzysk Mleczanu</div>
+              <div class="bio-metric-num cyan">-41.0%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Neural Synapses & Flow State (Span 5) -->
+      <div class="bio-pillar-card bio-pillar-col-5 tilt-card">
+        <div class="bio-pillar-img-wrap">
+          <img src="assets/neural-synapse.webp" alt="Świecąca sieć neuronowa mózgu w stanie neuroplastyczności" width="1200" height="896" loading="lazy">
+          <div class="bio-pillar-img-overlay"></div>
+        </div>
+        <div class="bio-pillar-content">
+          <div class="bio-pillar-tag-row">
+            <span class="bio-pillar-num">PILAR // 02</span>
+            <span class="bio-pillar-chip">KOGNITYWNY PEAK</span>
+          </div>
+          <h3 class="bio-pillar-title">Neuroplastyczność & Nootropia</h3>
+          <p class="bio-pillar-desc">
+            Precyzyjne nootropiki celowane w acetylocholinę i BDNF. Osiągaj stan głębokiego Flow na żądanie i skróć czas podejmowania krytycznych decyzji strategicznych.
+          </p>
+          <div class="bio-pillar-metrics-grid">
+            <div class="bio-pillar-metric-box">
+              <div class="bio-metric-label">Indeks Skupienia</div>
+              <div class="bio-metric-num">+55%</div>
+            </div>
+            <div class="bio-pillar-metric-box">
+              <div class="bio-metric-label">Fale Gamma</div>
+              <div class="bio-metric-num cyan">+38 Hz</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Cryo & Photobiomodulation (Span 6) -->
+      <div class="bio-pillar-card bio-pillar-col-6 tilt-card">
+        <div class="bio-pillar-img-wrap">
+          <img src="assets/cryo-chamber.webp" alt="Komora kriogeniczna i fotobiomodulacyjna podczerwieni" width="1200" height="896" loading="lazy">
+          <div class="bio-pillar-img-overlay"></div>
+        </div>
+        <div class="bio-pillar-content">
+          <div class="bio-pillar-tag-row">
+            <span class="bio-pillar-num">PILAR // 03</span>
+            <span class="bio-pillar-chip">SYSTEM REGENERACJI</span>
+          </div>
+          <h3 class="bio-pillar-title">Krioterapia & Fotobiomodulacja (RLT)</h3>
+          <p class="bio-pillar-desc">
+            Szok termiczny w -140°C wyzwala białka szoku zimna (RBM3) chroniące synapsy, podczas gdy światło czerwone 660nm/850nm stymuluje oksydazę cytochromu c do natychmiastowej naprawy tkanek.
+          </p>
+          <div class="bio-pillar-metrics-grid">
+            <div class="bio-pillar-metric-box">
+              <div class="bio-metric-label">Czas Odnowy Tkankowej</div>
+              <div class="bio-metric-num">-50%</div>
+            </div>
+            <div class="bio-pillar-metric-box">
+              <div class="bio-metric-label">Marker Zapalny hs-CRP</div>
+              <div class="bio-metric-num cyan">-73%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4: Epigenetics & DNA Methylation (Span 6) -->
+      <div class="bio-pillar-card bio-pillar-col-6 tilt-card">
+        <div class="bio-dna-anim-box">
+          <div class="bio-dna-radar">
+            <div class="bio-radar-core">DNA 3.0</div>
+          </div>
+        </div>
+        <div class="bio-pillar-content">
+          <div class="bio-pillar-tag-row">
+            <span class="bio-pillar-num">PILAR // 04</span>
+            <span class="bio-pillar-chip">ZEGAR EPIGENETYCZNY</span>
+          </div>
+          <h3 class="bio-pillar-title">Diagnostyka Zegara Horvatha & Epigenetyka</h3>
+          <p class="bio-pillar-desc">
+            Monitorujemy ponad 850 000 miejsc metylacji CpG w Twoim genomie. Wiemy z dokładnością do miesięcy, jak szybko starzeją się Twoje narządy i jak odwrócić ten trend z każdym kwartałem.
+          </p>
+          <div class="bio-pillar-metrics-grid">
+            <div class="bio-pillar-metric-box">
+              <div class="bio-metric-label">Długość Telomerów</div>
+              <div class="bio-metric-num">+14.2%</div>
+            </div>
+            <div class="bio-pillar-metric-box">
+              <div class="bio-metric-label">Cofnięcie Bio-Wieku</div>
+              <div class="bio-metric-num cyan">-5.8 lat</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function() {
+    const cards = document.querySelectorAll('.tilt-card');
+    cards.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotX = -((y - centerY) / centerY) * 8;
+        const rotY = ((x - centerX) / centerX) * 8;
+        card.style.transform = `perspective(1000px) rotateX(${rotX.toFixed(2)}deg) rotateY(${rotY.toFixed(2)}deg) translateZ(10px)`;
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0)';
+      });
+    });
+  })();
+</script>
+
+<style>
+  .bio-simulator-section {
+    position: relative;
+    padding: 120px 24px;
+    background: radial-gradient(circle at 50% 50%, rgba(6, 182, 212, 0.08) 0%, #05080f 70%);
+    overflow: hidden;
+  }
+
+  .bio-sim-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: rgba(10, 16, 30, 0.85);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    border-radius: 32px;
+    padding: 56px;
+    box-shadow: 0 30px 100px rgba(0, 0, 0, 0.8), 0 0 60px rgba(6, 182, 212, 0.15);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 56px;
+    align-items: center;
+    position: relative;
+  }
+
+  .bio-sim-header h2 {
+    font-family: var(--bio-font-heading, 'Syne', sans-serif);
+    font-size: clamp(28px, 3.2vw, 42px);
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0 0 16px;
+    letter-spacing: -0.02em;
+  }
+
+  .bio-sim-header p {
+    font-size: 16px;
+    color: #94a3b8;
+    line-height: 1.6;
+    margin: 0 0 36px;
+  }
+
+  .bio-control-group {
+    margin-bottom: 28px;
+  }
+
+  .bio-control-label-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .bio-control-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #e2e8f0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .bio-control-val {
+    font-family: var(--bio-font-mono, 'Space Grotesk', monospace);
+    font-size: 14px;
+    font-weight: 700;
+    color: #06b6d4;
+    background: rgba(6, 182, 212, 0.1);
+    padding: 4px 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(6, 182, 212, 0.3);
+  }
+
+  /* Custom Range Slider */
+  .bio-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 8px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    outline: none;
+    transition: background 0.2s;
+  }
+
+  .bio-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #06b6d4;
+    cursor: pointer;
+    box-shadow: 0 0 15px #06b6d4;
+    transition: transform 0.15s ease, background-color 0.2s ease;
+  }
+
+  .bio-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.25);
+    background: #38bdf8;
+  }
+
+  /* SIMULATOR RESULTS DISPLAY */
+  .bio-results-box {
+    background: radial-gradient(circle at center, rgba(6, 182, 212, 0.15) 0%, rgba(5, 9, 18, 0.9) 80%);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    border-radius: 24px;
+    padding: 40px 32px;
+    text-align: center;
+    position: relative;
+    box-shadow: inset 0 0 40px rgba(6, 182, 212, 0.1);
+  }
+
+  .bio-gauge-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 24px;
+  }
+
+  .bio-gauge-svg {
+    transform: rotate(-90deg);
+  }
+
+  .bio-gauge-bg {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.08);
+    stroke-width: 14;
+  }
+
+  .bio-gauge-val-path {
+    fill: none;
+    stroke: url(#cyanEmeraldGrad);
+    stroke-width: 14;
+    stroke-linecap: round;
+    stroke-dasharray: 565;
+    stroke-dashoffset: 200;
+    transition: stroke-dashoffset 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .bio-gauge-text-wrap {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .bio-gauge-main-val {
+    font-family: var(--bio-font-mono, 'Space Grotesk', monospace);
+    font-size: 38px;
+    font-weight: 800;
+    color: #10b981;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .bio-gauge-subtext {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #94a3b8;
+    font-weight: 600;
+    font-family: var(--bio-font-mono, 'Space Grotesk', monospace);
+  }
+
+  .bio-result-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+
+  .bio-stat-pill {
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(56, 189, 248, 0.15);
+    border-radius: 14px;
+    padding: 14px;
+    text-align: left;
+  }
+
+  .bio-stat-pill-label {
+    font-size: 11px;
+    color: #94a3b8;
+    text-transform: uppercase;
+    font-family: var(--bio-font-mono, 'Space Grotesk', monospace);
+    margin-bottom: 4px;
+  }
+
+  .bio-stat-pill-num {
+    font-family: var(--bio-font-mono, 'Space Grotesk', monospace);
+    font-size: 20px;
+    font-weight: 700;
+    color: #38bdf8;
+  }
+
+  .bio-sim-advice {
+    background: rgba(6, 182, 212, 0.08);
+    border-left: 3px solid #06b6d4;
+    padding: 14px 16px;
+    border-radius: 8px;
+    text-align: left;
+    font-size: 13px;
+    color: #cbd5e1;
+    line-height: 1.5;
+  }
+  .bio-sim-advice strong {
+    color: #67e8f9;
+    font-family: var(--bio-font-mono, 'Space Grotesk', monospace);
+  }
+
+  @media (max-width: 960px) {
+    .bio-sim-wrapper {
+      grid-template-columns: 1fr;
+      padding: 32px 20px;
+      gap: 40px;
+    }
+  }
+</style>
+
+<section id="symulator" class="bio-simulator-section">
+  <div class="bio-sim-wrapper">
+    <!-- Left: Controls -->
+    <div class="bio-sim-left">
+      <div class="bio-badge-row">
+        <span class="bio-pulse-dot"></span>
+        <span>INTERAKTYWNY ALGORYTM EPIGENETYCZNY</span>
+      </div>
+
+      <div class="bio-sim-header">
+        <h2>Symulator Zmiany Wieku Biologicznego</h2>
+        <p>
+          Dostosuj kluczowe wektory stylu życia i protokołów terapeutycznych, aby zobaczyć predykcję odmłodzenia tkanek wg algorytmu zegara metylacyjnego.
+        </p>
+      </div>
+
+      <!-- Slider 1 -->
+      <div class="bio-control-group">
+        <div class="bio-control-label-row">
+          <span class="bio-control-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+            Sen Głęboki (NREM 3/4)
+          </span>
+          <span class="bio-control-val" id="valSleep">1.5 h / noc</span>
+        </div>
+        <input type="range" class="bio-slider" id="inputSleep" min="0.5" max="3.0" step="0.1" value="1.5">
+      </div>
+
+      <!-- Slider 2 -->
+      <div class="bio-control-group">
+        <div class="bio-control-label-row">
+          <span class="bio-control-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#06b6d4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+            </svg>
+            Protokół Szoku Termicznego (Zimno/Ciepło)
+          </span>
+          <span class="bio-control-val" id="valThermo">30 min / tydz</span>
+        </div>
+        <input type="range" class="bio-slider" id="inputThermo" min="0" max="90" step="5" value="30">
+      </div>
+
+      <!-- Slider 3 -->
+      <div class="bio-control-group">
+        <div class="bio-control-label-row">
+          <span class="bio-control-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M8 12h8"></path>
+            </svg>
+            Aktywatory NAD+ & Mitofagii (NMN / Urolithin A)
+          </span>
+          <span class="bio-control-val" id="valSupps">Poziom 2 (Zaawansowany)</span>
+        </div>
+        <input type="range" class="bio-slider" id="inputSupps" min="0" max="3" step="1" value="2">
+      </div>
+
+      <!-- Slider 4 -->
+      <div class="bio-control-group">
+        <div class="bio-control-label-row">
+          <span class="bio-control-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+            </svg>
+            Trening Mitochondrialny (Strefa 2 Cardio)
+          </span>
+          <span class="bio-control-val" id="valCardio">90 min / tydz</span>
+        </div>
+        <input type="range" class="bio-slider" id="inputCardio" min="0" max="240" step="15" value="90">
+      </div>
+    </div>
+
+    <!-- Right: Visual Gauge & Real-Time Bio Output -->
+    <div class="bio-results-box">
+      <div class="bio-gauge-container">
+        <svg class="bio-gauge-svg" width="200" height="200" viewBox="0 0 200 200">
+          <defs>
+            <linearGradient id="cyanEmeraldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#06b6d4" />
+              <stop offset="100%" stop-color="#10b981" />
+            </linearGradient>
+          </defs>
+          <circle class="bio-gauge-bg" cx="100" cy="100" r="90"></circle>
+          <circle class="bio-gauge-val-path" id="gaugePath" cx="100" cy="100" r="90"></circle>
+        </svg>
+        <div class="bio-gauge-text-wrap">
+          <span class="bio-gauge-main-val" id="outBioAge">-6.4 lat</span>
+          <span class="bio-gauge-subtext">Delta Bio-Wieku</span>
+        </div>
+      </div>
+
+      <div class="bio-result-stats">
+        <div class="bio-stat-pill">
+          <div class="bio-stat-pill-label">Wzrost Energii ATP</div>
+          <div class="bio-stat-pill-num" id="outAtp">+58%</div>
+        </div>
+        <div class="bio-stat-pill">
+          <div class="bio-stat-pill-label">Wskaźnik BDNF</div>
+          <div class="bio-stat-pill-num" id="outBdnf">+42%</div>
+        </div>
+      </div>
+
+      <div class="bio-sim-advice" id="simAdvice">
+        <strong>DIAGNOZA SYSTEMU:</strong> Twój protokół zapewnia silną biogenezę mitochondrialną. Dodanie 20 minut krioterapii zwiększy redukcję wieku komórkowego o kolejne 1.2 roku.
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function() {
+    const inputSleep = document.getElementById('inputSleep');
+    const inputThermo = document.getElementById('inputThermo');
+    const inputSupps = document.getElementById('inputSupps');
+    const inputCardio = document.getElementById('inputCardio');
+
+    const valSleep = document.getElementById('valSleep');
+    const valThermo = document.getElementById('valThermo');
+    const valSupps = document.getElementById('valSupps');
+    const valCardio = document.getElementById('valCardio');
+
+    const outBioAge = document.getElementById('outBioAge');
+    const outAtp = document.getElementById('outAtp');
+    const outBdnf = document.getElementById('outBdnf');
+    const gaugePath = document.getElementById('gaugePath');
+    const simAdvice = document.getElementById('simAdvice');
+
+    const suppLevels = [
+      'Brak suplementacji',
+      'Poziom 1 (Podstawowy)',
+      'Poziom 2 (Zaawansowany)',
+      'Poziom 3 (Protokół Kliniczny)'
+    ];
+
+    function calculate() {
+      const sleep = parseFloat(inputSleep.value);
+      const thermo = parseInt(inputThermo.value);
+      const supp = parseInt(inputSupps.value);
+      const cardio = parseInt(inputCardio.value);
+
+      valSleep.textContent = `${sleep.toFixed(1)} h / noc`;
+      valThermo.textContent = `${thermo} min / tydz`;
+      valSupps.textContent = suppLevels[supp];
+      valCardio.textContent = `${cardio} min / tydz`;
+
+      // Formula calculations
+      let bioAgeDelta = (sleep * 1.8) + (thermo * 0.04) + (supp * 1.5) + (cardio * 0.02);
+      bioAgeDelta = Math.min(bioAgeDelta, 11.5);
+
+      const atpGain = Math.round((sleep * 14) + (thermo * 0.3) + (supp * 16) + (cardio * 0.15));
+      const bdnfGain = Math.round((sleep * 10) + (thermo * 0.25) + (supp * 12) + (cardio * 0.22));
+
+      outBioAge.textContent = `-${bioAgeDelta.toFixed(1)} lat`;
+      outAtp.textContent = `+${atpGain}%`;
+      outBdnf.textContent = `+${bdnfGain}%`;
+
+      // Gauge animation (circumference ~ 565)
+      const maxDelta = 11.5;
+      const fraction = Math.min(bioAgeDelta / maxDelta, 1);
+      const offset = 565 - (fraction * 565 * 0.75); // 75% arc
+      gaugePath.style.strokeDashoffset = offset;
+
+      // Dynamic Advice
+      if (sleep < 1.2) {
+        simAdvice.innerHTML = `<strong>KRYTYCZNY WĄŻ:</strong> Niski sen głęboki blokuje oczyszczanie glimfatyczne mózgu. Zwiększenie NREM do 1.8h da natychmiastowy skok energii.`;
+      } else if (thermo < 20) {
+        simAdvice.innerHTML = `<strong>REKOMENDACJA:</strong> Aktywuj białka szoku zimna (RBM3) wprowadzając 15 min krioterapii lub morsowania tygodniowo.`;
+      } else if (supp < 2) {
+        simAdvice.innerHTML = `<strong>OPTYMALIZACJA NAD+:</strong> Podniesienie puli koenzymu NAD+ i aktywatorów sirtuin (SIRT1-7) przyspieszy naprawę pęknięć DNA o 35%.`;
+      } else {
+        simAdvice.innerHTML = `<strong>STAN PEAK LONGEVITY:</strong> Twój profil protokolarny mieści się w górnym 1% populacji pod kątem tempa starzenia biologicznego.`;
+      }
+    }
+
+    [inputSleep, inputThermo, inputSupps, inputCardio].forEach(input => {
+      input.addEventListener('input', calculate);
+    });
+
+    calculate();
+  })();
+</script>
+
+<style>
+  .bio-showcase-section {
+    position: relative;
+    padding: 130px 24px;
+    background: #04070d;
+    overflow: hidden;
+  }
+
+  .bio-parallax-layer {
+    position: absolute;
+    pointer-events: none;
+    will-change: transform;
+  }
+
+  .bio-parallax-orb1 {
+    top: 15%;
+    right: 5%;
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(6, 182, 212, 0.15) 0%, transparent 70%);
+    filter: blur(60px);
+  }
+
+  .bio-parallax-orb2 {
+    bottom: 10%;
+    left: 5%;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.12) 0%, transparent 70%);
+    filter: blur(70px);
+  }
+
+  .bio-showcase-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 64px;
+    align-items: center;
+    max-width: 1280px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+
+  .bio-sticky-col {
+    position: sticky;
+    top: 120px;
+  }
+
+  .bio-timeline-list {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    position: relative;
+  }
+
+  .bio-timeline-list::before {
+    content: '';
+    position: absolute;
+    top: 30px;
+    bottom: 30px;
+    left: 24px;
+    width: 2px;
+    background: linear-gradient(to bottom, #06b6d4, #10b981, rgba(255,255,255,0.05));
+  }
+
+  .bio-timeline-item {
+    display: flex;
+    gap: 28px;
+    background: rgba(13, 20, 36, 0.6);
+    border: 1px solid rgba(56, 189, 248, 0.15);
+    border-radius: 24px;
+    padding: 32px;
+    backdrop-filter: blur(16px);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+  }
+
+  .bio-timeline-item:hover {
+    border-color: rgba(6, 182, 212, 0.5);
+    transform: translateX(8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(6, 182, 212, 0.15);
+  }
+
+  .bio-step-num {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    border-radius: 14px;
+    background: #05080f;
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--bio-font-mono, 'Space Grotesk', monospace);
+    font-size: 16px;
+    font-weight: 800;
+    color: #38bdf8;
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
+    z-index: 2;
+  }
+
+  .bio-timeline-body h3 {
+    font-family: var(--bio-font-heading, 'Syne', sans-serif);
+    font-size: 22px;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0 0 10px;
+    letter-spacing: -0.01em;
+  }
+
+  .bio-timeline-body p {
+    font-size: 15px;
+    line-height: 1.65;
+    color: #94a3b8;
+    margin: 0 0 18px;
+  }
+
+  .bio-tag-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .bio-chip-sm {
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #cbd5e1;
+    font-family: var(--bio-font-mono, 'Space Grotesk', monospace);
+  }
+
+  /* Biomarker telemetry box on the left */
+  .bio-telemetry-panel {
+    background: rgba(9, 14, 26, 0.85);
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    backdrop-filter: blur(20px);
+    margin-top: 32px;
+  }
+
+  .bio-telemetry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    padding-bottom: 16px;
+    margin-bottom: 20px;
+    font-family: var(--bio-font-mono, 'Space Grotesk', monospace);
+    font-size: 13px;
+    color: #38bdf8;
+    font-weight: 700;
+  }
+
+  .bio-telemetry-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    font-size: 14px;
+  }
+  .bio-telemetry-row:last-child {
+    border-bottom: none;
+  }
+  .bio-tel-name {
+    color: #94a3b8;
+  }
+  .bio-tel-val {
+    font-family: var(--bio-font-mono, 'Space Grotesk', monospace);
+    font-weight: 700;
+    color: #10b981;
+  }
+  .bio-tel-val.cyan {
+    color: #06b6d4;
+  }
+
+  @media (max-width: 960px) {
+    .bio-showcase-grid {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+    .bio-sticky-col {
+      position: static;
+    }
+    .bio-timeline-list::before {
+      display: none;
+    }
+    .bio-timeline-item {
+      flex-direction: column;
+      gap: 16px;
+    }
+  }
+</style>
+
+<section id="technologia" class="bio-showcase-section">
+  <div class="bio-parallax-layer bio-parallax-orb1" data-speed="0.2"></div>
+  <div class="bio-parallax-layer bio-parallax-orb2" data-speed="-0.15"></div>
+
+  <div class="bio-showcase-grid">
+    <!-- Left Column (Sticky Overview & Live Telemetry) -->
+    <div class="bio-sticky-col">
+      <div class="bio-badge-row">
+        <span class="bio-pulse-dot"></span>
+        <span>ARCHITEKTURA PROCESU 3-ETAPOWEGO</span>
+      </div>
+
+      <h2 class="bio-hero-title" style="font-size: clamp(30px, 3.5vw, 46px); margin-bottom: 20px;">
+        Od Surowego Genomu <br>
+        <span class="bio-gradient-text">Do Stanu Niezłomności.</span>
+      </h2>
+
+      <p class="bio-hero-desc">
+        Większość ludzi leczy symptomy zmęczenia. My przeprowadzamy pełny inżynieryjny refaktoring Twojego metabolizmu i sieci neuronowej w oparciu o 3 precyzyjne fazy.
+      </p>
+
+      <div class="bio-telemetry-panel">
+        <div class="bio-telemetry-header">
+          <span>PARAMETRY KALIBRACJI // TELEMETRIA</span>
+          <span style="color: #10b981;">ONLINE</span>
+        </div>
+        <div class="bio-telemetry-row">
+          <span class="bio-tel-name">hs-CRP (Stan zapalny)</span>
+          <span class="bio-tel-val">&lt; 0.3 mg/L (Optimum)</span>
+        </div>
+        <div class="bio-telemetry-row">
+          <span class="bio-tel-name">ApoB (Cząstki aterogenne)</span>
+          <span class="bio-tel-val cyan">58 mg/dL (Ideal)</span>
+        </div>
+        <div class="bio-telemetry-row">
+          <span class="bio-tel-name">Stosunek NAD+/NADH</span>
+          <span class="bio-tel-val">x2.4 Wzrost</span>
+        </div>
+        <div class="bio-telemetry-row">
+          <span class="bio-tel-name">VO2 Max (Kondycja mitochondrialna)</span>
+          <span class="bio-tel-val cyan">54.2 ml/kg/min</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column: 3 Stages -->
+    <div class="bio-timeline-list">
+      <!-- Step 1 -->
+      <div class="bio-timeline-item">
+        <div class="bio-step-num">01</div>
+        <div class="bio-timeline-body">
+          <h3>Faza 1: Głęboka Sekwencja Genomowa & Zegar Horvatha</h3>
+          <p>
+            Pobieramy kompleksowy profil ponad 120 biomarkerów krwi, śliny i mikrobiomu. Analizujemy metylację DNA (GrimAge, PhenoAge), polimorfizmy MTHFR, COMT oraz stężenia kwasów tłuszczowych w erytrocytach.
+          </p>
+          <div class="bio-tag-cloud">
+            <span class="bio-chip-sm">Epigenetic Horvath Clock</span>
+            <span class="bio-chip-sm">Panel Lipidomiczny ApoB</span>
+            <span class="bio-chip-sm">Indeks Omega-3</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="bio-timeline-item">
+        <div class="bio-step-num">02</div>
+        <div class="bio-timeline-body">
+          <h3>Faza 2: Wdrożenie Protokołu Komórkowego & Neuro-Sync</h3>
+          <p>
+            Wdrażamy spersonalizowany stack farmaceutyczno-suplementacyjny (prekursory NAD+, ergogeniki, nootropiki cholinergiczne) oraz sesje fotobiomodulacji i krioterapii dopasowane do Twojego profilu ekspresji genów.
+          </p>
+          <div class="bio-tag-cloud">
+            <span class="bio-chip-sm">Infuzje NAD+ / NMN</span>
+            <span class="bio-chip-sm">Fotobiomodulacja 810nm</span>
+            <span class="bio-chip-sm">Kalibracja Rytmu Dobowego</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="bio-timeline-item">
+        <div class="bio-step-num">03</div>
+        <div class="bio-timeline-body">
+          <h3>Faza 3: Zamknięta Pętla Bio-Feedbacku & Kwartalna Rekalibracja</h3>
+          <p>
+            Ciągły monitoring glikemii (CGM), zmienności rytmu zatokowego (HRV) oraz architektury snu. Co 90 dni wykonujemy panel kontrolny i modyfikujemy protokół w odpowiedzi na tempo odwracania wieku komórkowego.
+          </p>
+          <div class="bio-tag-cloud">
+            <span class="bio-chip-sm">Continuous Glucose Monitor</span>
+            <span class="bio-chip-sm">Biometryczny Dashboard AI</span>
+            <span class="bio-chip-sm">Kwartalny Re-Test Epigenetyczny</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function() {
+    const parallaxLayers = document.querySelectorAll('.bio-parallax-layer');
+    if (!parallaxLayers.length) return;
+
+    window.addEventListener('scroll', () => {
+      const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+      parallaxLayers.forEach(layer => {
+        const speed = parseFloat(layer.getAttribute('data-speed') || '0.2');
+        layer.style.transform = `translate3d(0, ${scrollY * speed}px, 0)`;
+      });
+    }, { passive: true });
+  })();
+</script>
+
+<style>
+  .bio-results-section {
+    position: relative;
+    padding: 120px 24px;
+    background: #050810;
+    overflow: hidden;
+  }
+
+  .bio-case-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .bio-case-card {
+    background: rgba(13, 20, 36, 0.7);
+    border: 1px solid rgba(56, 189, 248, 0.16);
+    border-radius: 24px;
+    padding: 36px 32px;
+    backdrop-filter: blur(20px);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  }
+
+  .bio-case-card:hover {
+    border-color: rgba(6, 182, 212, 0.6);
+    transform: translateY(-8px);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.6), 0 0 30px rgba(6, 182, 212, 0.2);
+  }
+
+  .bio-case-profile {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .bio-case-avatar {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #06b6d4, #10b981);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--bio-font-heading, 'Syne', sans-serif);
+    font-size: 20px;
+    font-weight: 800;
+    color: #ffffff;
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.4);
+  }
+
+  .bio-case-info h4 {
+    margin: 0 0 4px;
+    font-size: 17px;
+    color: #ffffff;
+    font-weight: 700;
+  }
+
+  .bio-case-info span {
+    font-size: 13px;
+    color: #94a3b8;
+  }
+
+  .bio-case-quote {
+    font-size: 15px;
+    line-height: 1.65;
+    color: #cbd5e1;
+    margin: 0 0 28px;
+    flex-grow: 1;
+    font-style: italic;
+  }
+
+  .bio-case-delta-box {
+    background: rgba(5, 8, 15, 0.6);
+    border: 1px solid rgba(56, 189, 248, 0.15);
+    border-radius: 16px;
+    padding: 20px;
+    margin-top: auto;
+  }
+
+  .bio-delta-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--bio-font-mono, 'Space Grotesk', monospace);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #64748b;
+    margin-bottom: 12px;
+  }
+
+  .bio-delta-metric {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 8px;
+  }
+  .bio-delta-metric:last-child {
+    margin-bottom: 0;
+  }
+
+  .bio-delta-name {
+    font-size: 13px;
+    color: #94a3b8;
+  }
+
+  .bio-delta-val {
+    font-family: var(--bio-font-mono, 'Space Grotesk', monospace);
+    font-size: 14px;
+    font-weight: 700;
+    color: #10b981;
+  }
+
+  @media (max-width: 1024px) {
+    .bio-case-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<section id="wyniki" class="bio-results-section">
+  <div class="bio-container">
+    <div class="bio-section-header">
+      <div class="bio-section-tag">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+          <polyline points="22 4 12 14.01 9 11.01"></polyline>
+        </svg>
+        <span>ZWERYFIKOWANE DANE KLINICZNE</span>
+      </div>
+      <h2 class="bio-section-title">Konkretne Biomarkery. Realne Odmłodzenie.</h2>
+      <p class="bio-section-subtitle">
+        Każda zmiana w naszym protokole jest walidowana badaniami laboratoryjnymi i telemetrią urządzeń medycznych klasy IIa.
+      </p>
+    </div>
+
+    <div class="bio-case-grid">
+      <!-- Case 1 -->
+      <div class="bio-case-card">
+        <div class="bio-case-profile">
+          <div class="bio-case-avatar">MK</div>
+          <div class="bio-case-info">
+            <h4>Michał K. (42 lata)</h4>
+            <span>Founder SaaS & Anioł Biznesu</span>
+          </div>
+        </div>
+        <p class="bio-case-quote">
+          "Po 6 miesiącach protokołu mój zegar epigenetyczny Horvatha cofnął się o 7.8 roku. Poziom energii o 15:00 jest identyczny jak o 8:00 rano — mgła mózgowa całkowicie zniknęła."
+        </p>
+        <div class="bio-case-delta-box">
+          <div class="bio-delta-header">
+            <span>AUDYT PRZED / PO (180 DNI)</span>
+            <span style="color: #38bdf8;">DNA TEST</span>
+          </div>
+          <div class="bio-delta-metric">
+            <span class="bio-delta-name">Wiek Biologiczny:</span>
+            <span class="bio-delta-val">45.1 → 37.3 lat (-7.8)</span>
+          </div>
+          <div class="bio-delta-metric">
+            <span class="bio-delta-name">Średnie HRV:</span>
+            <span class="bio-delta-val">38 ms → 79 ms (+107%)</span>
+          </div>
+          <div class="bio-delta-metric">
+            <span class="bio-delta-name">Sen Głęboki NREM:</span>
+            <span class="bio-delta-val">45 min → 1h 50min</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case 2 -->
+      <div class="bio-case-card">
+        <div class="bio-case-profile">
+          <div class="bio-case-avatar" style="background: linear-gradient(135deg, #38bdf8, #6366f1);">AW</div>
+          <div class="bio-case-info">
+            <h4>Dr Anna W. (38 lat)</h4>
+            <span>Specjalista Chirurgii & Liderka Zespołu</span>
+          </div>
+        </div>
+        <p class="bio-case-quote">
+          "Jako lekarz podchodziłam sceptycznie do nootropików. Protokół neuro-synaptyczny Synapse oparty na cholinie i fotobiomodulacji skrócił moją regenerację powysiłkową o ponad połowę."
+        </p>
+        <div class="bio-case-delta-box">
+          <div class="bio-delta-header">
+            <span>AUDYT NEURO & INFLAMMATION</span>
+            <span style="color: #38bdf8;">LAB PANEL</span>
+          </div>
+          <div class="bio-delta-metric">
+            <span class="bio-delta-name">Marker hs-CRP:</span>
+            <span class="bio-delta-val">1.8 → 0.25 mg/L (-86%)</span>
+          </div>
+          <div class="bio-delta-metric">
+            <span class="bio-delta-name">Focus Score (EEG):</span>
+            <span class="bio-delta-val">+44% Indeks Skupienia</span>
+          </div>
+          <div class="bio-delta-metric">
+            <span class="bio-delta-name">Insulina na czczo:</span>
+            <span class="bio-delta-val">9.2 → 4.1 µIU/mL</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case 3 -->
+      <div class="bio-case-card">
+        <div class="bio-case-profile">
+          <div class="bio-case-avatar" style="background: linear-gradient(135deg, #10b981, #06b6d4);">TB</div>
+          <div class="bio-case-info">
+            <h4>Tomasz B. (49 lat)</h4>
+            <span>Partner Zarządzający Funduszu</span>
+          </div>
+        </div>
+        <p class="bio-case-quote">
+          "Wdrożenie terapii krio i biogenezy mitochondrialnej pozwoliło mi pobić życiówkę w maratonie w wieku 49 lat, przy spoczynkowym tętnie 46 bpm. Czuję się jak 10 lat temu."
+        </p>
+        <div class="bio-case-delta-box">
+          <div class="bio-delta-header">
+            <span>WYDOLNOŚĆ MITOCHONDRIALNA</span>
+            <span style="color: #38bdf8;">VO2 MAX</span>
+          </div>
+          <div class="bio-delta-metric">
+            <span class="bio-delta-name">VO2 Max:</span>
+            <span class="bio-delta-val">44.8 → 56.2 ml/kg/min</span>
+          </div>
+          <div class="bio-delta-metric">
+            <span class="bio-delta-name">Tętno Spoczynkowe:</span>
+            <span class="bio-delta-val">58 → 46 bpm</span>
+          </div>
+          <div class="bio-delta-metric">
+            <span class="bio-delta-name">Długość Telomerów:</span>
+            <span class="bio-delta-val">+18% percentile</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .bio-cta-section {
+    position: relative;
+    padding: 130px 24px 60px;
+    background: radial-gradient(circle at 50% 20%, rgba(6, 182, 212, 0.12) 0%, #03050a 70%);
+    overflow: hidden;
+  }
+
+  .bio-cta-card {
+    max-width: 960px;
+    margin: 0 auto 100px;
+    background: rgba(11, 18, 33, 0.9);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    border-radius: 32px;
+    padding: 64px 48px;
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8), 0 0 60px rgba(6, 182, 212, 0.2);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    text-align: center;
+    position: relative;
+  }
+
+  .bio-cta-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 20%;
+    right: 20%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #38bdf8, #10b981, transparent);
+  }
+
+  .bio-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 720px;
+    margin: 40px auto 0;
+    text-align: left;
+  }
+
+  .bio-form-full {
+    grid-column: span 2;
+  }
+
+  .bio-form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #94a3b8;
+    margin-bottom: 8px;
+    font-family: var(--bio-font-mono, 'Space Grotesk', monospace);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .bio-input,
+  .bio-select {
+    width: 100%;
+    padding: 16px 20px;
+    background: rgba(5, 8, 15, 0.8);
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    border-radius: 12px;
+    color: #ffffff;
+    font-size: 15px;
+    font-family: var(--bio-font-sans, inherit);
+    outline: none;
+    transition: all 0.25s ease;
+    box-sizing: border-box;
+  }
+
+  .bio-input:focus,
+  .bio-select:focus {
+    border-color: #06b6d4;
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.35);
+    background: rgba(10, 16, 30, 0.95);
+  }
+
+  .bio-select option {
+    background: #0b1221;
+    color: #fff;
+  }
+
+  .bio-submit-btn {
+    grid-column: span 2;
+    padding: 20px 36px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #06b6d4 0%, #10b981 100%);
+    border: none;
+    color: #05080f;
+    font-family: var(--bio-font-heading, 'Syne', sans-serif);
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    box-shadow: 0 10px 40px rgba(6, 182, 212, 0.5);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 12px;
+  }
+
+  .bio-submit-btn:hover {
+    transform: translateY(-3px) scale(1.01);
+    box-shadow: 0 18px 50px rgba(6, 182, 212, 0.7);
+  }
+
+  .bio-form-guarantees {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 32px;
+    margin-top: 32px;
+    font-size: 13px;
+    color: #64748b;
+    font-family: var(--bio-font-mono, 'Space Grotesk', monospace);
+  }
+
+  .bio-guarantee-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* FOOTER */
+  .bio-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 48px;
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
+    font-size: 14px;
+    color: #64748b;
+  }
+
+  .bio-footer-links {
+    display: flex;
+    gap: 24px;
+  }
+
+  .bio-footer-links a {
+    color: #94a3b8;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .bio-footer-links a:hover {
+    color: #38bdf8;
+  }
+
+  /* Form success modal state */
+  .bio-success-msg {
+    display: none;
+    padding: 32px;
+    background: rgba(16, 185, 129, 0.15);
+    border: 1px solid #10b981;
+    border-radius: 16px;
+    margin-top: 24px;
+    color: #ecfdf5;
+  }
+
+  @media (max-width: 768px) {
+    .bio-cta-card {
+      padding: 40px 20px;
+    }
+    .bio-form-grid {
+      grid-template-columns: 1fr;
+    }
+    .bio-form-full {
+      grid-column: span 1;
+    }
+    .bio-submit-btn {
+      grid-column: span 1;
+    }
+    .bio-footer {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+</style>
+
+<section id="kontakt" class="bio-cta-section">
+  <div class="bio-cta-card">
+    <div class="bio-badge-row">
+      <span class="bio-pulse-dot"></span>
+      <span>REKRUTACJA DO PROGRAMU PROTOKOLARNEGO</span>
+    </div>
+
+    <h2 class="bio-hero-title" style="font-size: clamp(32px, 4vw, 52px); margin-bottom: 16px;">
+      Przestań Zgadywać. <br>
+      <span class="bio-gradient-text">Zoptymalizuj Swoją Biologię.</span>
+    </h2>
+
+    <p class="bio-hero-desc" style="max-width: 680px; margin: 0 auto;">
+      Zgłoś się na wstępną konsultację kwalifikacyjną. Przeanalizujemy Twój profil epigenetyczny, cele wydajnościowe i dobierzemy spersonalizowaną architekturę protokołu.
+    </p>
+
+    <form class="bio-form-grid" id="bioIntakeForm">
+      <div class="bio-form-group">
+        <label for="userName">Imię i Nazwisko</label>
+        <input type="text" id="userName" class="bio-input" placeholder="np. Aleksander Nowak" required>
+      </div>
+
+      <div class="bio-form-group">
+        <label for="userEmail">Adres E-mail</label>
+        <input type="email" id="userEmail" class="bio-input" placeholder="twoj@email.pl" required>
+      </div>
+
+      <div class="bio-form-group">
+        <label for="userPhone">Numer Telefonu</label>
+        <input type="tel" id="userPhone" class="bio-input" placeholder="+48 500 000 000" required>
+      </div>
+
+      <div class="bio-form-group">
+        <label for="userGoal">Główny Wektor Celu</label>
+        <select id="userGoal" class="bio-select">
+          <option value="longevity">Odwrócenie Wieku Biologicznego & Epigenetyka</option>
+          <option value="energy">Maksymalna Energia ATP & Brak Zmęczenia</option>
+          <option value="neuro">Szczytowa Neuroplastyczność & Focus State</option>
+          <option value="all">Totalna Rekonstrukcja Biologiczna (VIP)</option>
+        </select>
+      </div>
+
+      <button type="submit" class="bio-submit-btn">
+        <span>ZAMÓW AUDYT & KONSULTACJĘ BIOHACKINGU</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </button>
+    </form>
+
+    <div class="bio-success-msg" id="formSuccess">
+      <h3 style="margin: 0 0 8px; font-size: 20px; font-family: var(--bio-font-heading);">Aplikacja Złożona Pomyślnie!</h3>
+      <p style="margin: 0; font-size: 14px; opacity: 0.9;">Nasz Główny Konsultant Epigenetyczny skontaktuje się z Tobą w ciągu 24h w celu zaplanowania panelu diagnostycznego.</p>
+    </div>
+
+    <div class="bio-form-guarantees">
+      <div class="bio-guarantee-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+        </svg>
+        <span>Szyfrowanie Danych Medycznych 256-bit</span>
+      </div>
+      <div class="bio-guarantee-item">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 14 14"></polyline>
+        </svg>
+        <span>Limitowana Dostępność: 12 Miejsc / Miesiąc</span>
+      </div>
+    </div>
+  </div>
+
+  <footer class="bio-footer">
+    <div class="bio-footer-left">
+      <span>© 2026 SYNAPSE // PROTOCOL. Wszelkie prawa zastrzeżone. Zaawansowana Inżynieria Długowieczności.</span>
+    </div>
+    <div class="bio-footer-links">
+      <a href="#">Polityka Prywatności</a>
+      <a href="#">Standardy Laboratoryjne</a>
+      <a href="#">Zgoda RODO / HIPAA</a>
+    </div>
+  </footer>
+</section>
+
+<script>
+  (function() {
+    const form = document.getElementById('bioIntakeForm');
+    const successMsg = document.getElementById('formSuccess');
+    if (!form) return;
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      form.style.display = 'none';
+      successMsg.style.display = 'block';
+    });
+  })();
+</script>
+
+</body>
+</html>
